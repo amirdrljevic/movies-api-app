@@ -1,12 +1,8 @@
 # README
 
-This is a basic API app, MOVIES-API-APP. With only one model Movie and 2 attributes.
+This is a basic API app, MOVIES-API-APP. With only one model Movie and 2 attributes (name, description).
 
 * More to add later... 
-
-application up and running.
-
-Things you may want to cover:
 
 * Ruby version
 
@@ -14,11 +10,11 @@ Things you may want to cover:
 
 * Configuration
 
-* Database creation
+* rails db:create
 
-* Database initialization
+* rails db:migrate
 
-* How to run the test suite
+* rails db:seed
 
 * Services (job queues, cache servers, search engines, etc.)
 
