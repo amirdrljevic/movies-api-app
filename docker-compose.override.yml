@@ -28,7 +28,7 @@ services:
      # here is the pattern 'postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]'
      RAILS_ENV: development
    volumes:
-      - "../.:/app"
+      - .:/myapp
     #  - "./database.yml:/app/config/database.yml"
    stdin_open: true
    tty: true
