@@ -7,6 +7,7 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'faker', '~> 2.19'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
