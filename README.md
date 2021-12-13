@@ -16,7 +16,7 @@ This is a basic API app, MOVIES-API-APP. With only one model Movie and 2 attribu
 
 * rails db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
+* Active model serializer added
 
 * Deployment instructions
 
