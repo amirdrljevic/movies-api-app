@@ -1,0 +1,69 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/movies":
+    get:
+      summary: list movies
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Creates a movie
+      tags:
+      - Movies
+      parameters: []
+      responses:
+        '201':
+          description: movie created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: yassin
+                description:
+                  type: string
+                  example: Amir
+              required:
+              - name
+  "/movies/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show movie
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update movie
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update movie
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete movie
+      responses:
+        '200':
+          description: successful
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
