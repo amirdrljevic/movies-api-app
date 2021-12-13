@@ -1,0 +1,37 @@
+version: "3.3"
+services:
+ db:
+   image: "mdillon/postgis:9.6"
+   environment:
+     POSTGRES_USER: root
+     POSTGRES_PASSWORD: root
+     PGDATA: /var/lib/postgresql/data/pgdata
+   ports:
+      - "5432:5432" #because the other solution is to turn of the postgres server on my linux
+   volumes:
+      - db:/var/lib/postgresql/data
+ app:
+   depends_on:
+      - "db"
+   build: .
+   ports:
+      - "3000:3000"
+   environment:
+     DATABASE_URL: 'postgresql://root:root@db:5432/movies_api'
+     # DB_USERNAME: root
+     # DB_PASSWORD: root
+     # DB_PORT: 5432
+     # DB_HOST: db
+     # DB_DATABASE: movies_api
+     # just a note:
+     # DATABASE_URL is a connection string, it is an alternative to env variables 
+     # here is the pattern 'postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]'
+     RAILS_ENV: development
+   volumes:
+      - "../.:/app"
+    #  - "./database.yml:/app/config/database.yml"
+   stdin_open: true
+   tty: true
+   
+volumes:
+ db:
