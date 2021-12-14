@@ -7,6 +7,8 @@ paths:
   "/movies":
     get:
       summary: list movies
+      tags:
+      - Movies
       responses:
         '200':
           description: successful
@@ -28,10 +30,10 @@ paths:
               properties:
                 name:
                   type: string
-                  example: yassin
+                  example: foo
                 description:
                   type: string
-                  example: Amir
+                  example: bar
               required:
               - name
   "/movies/{id}":
@@ -44,21 +46,41 @@ paths:
         type: string
     get:
       summary: show movie
+      tags:
+      - Movies
       responses:
         '200':
           description: successful
     patch:
-      summary: update movie
+      summary: update movie by id
+      tags:
+      - Movies
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: header
+        description: name
+        schema:
+          type: string
+      - name: description
+        in: header
+        description: description
+        schema:
+          type: string
       responses:
         '200':
-          description: successful
-    put:
-      summary: update movie
-      responses:
-        '200':
-          description: successful
+          description: success
+        '404':
+          description: not_found
     delete:
       summary: delete movie
+      tags:
+      - Movies
       responses:
         '200':
           description: successful
